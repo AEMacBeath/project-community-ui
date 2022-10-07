@@ -1,0 +1,13 @@
+.NavBar {
+  background-color: #ffc400;
+}
+
+.NavLink {
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.582);
+}
+
+.Active {
+  color: black;
+  text-decoration: underline;
+}

@@ -1,0 +1,18 @@
+.App {
+  font-family: "Bebas Neue", cursive;
+  background-color: rgba(211, 211, 211, 0.849);
+  min-height: 100vh;
+}
+
+.Main {
+  padding-top: 81px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a:hover {
+  color: black;
+  transition: color ease-in-out 0.3s;
+}
