@@ -1,0 +1,13 @@
+.Container {
+    max-width: 500px;
+  }
+  
+  .Form {
+    padding-bottom: 10px;
+  }
+  
+  .Link {
+    padding: 5px;
+    color: grey;
+    text-align: left;
+  }
