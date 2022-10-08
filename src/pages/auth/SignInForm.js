@@ -5,8 +5,11 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/currentUserContext";
 
 const SignUpForm = () => {
+  const setCurrentUser = useSetCurrentUser();
+
   const [signUpData, setSignUpData] = useState({
     username: "",
     password: "",
@@ -28,7 +31,8 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signUpData);
+      const { data } = await axios.post("/dj-rest-auth/login/", signUpData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
