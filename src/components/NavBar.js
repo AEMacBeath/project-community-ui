@@ -1,13 +1,69 @@
+import axios from "axios";
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/currentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/currentUserContext";
 import styles from "../styles/NavBar.module.css";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser()
 
-  const loggedInNav = <>{currentUser?.username}</>;
+  const handleSignOut = async () => {
+    try {
+      await axios.post('dj-rest-auth/logout/');
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const addUserSubmit = (
+    <>
+      <NavLink
+        to={`/profiles/${currentUser?.profile_id}`}
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40} />
+      </NavLink>
+      <NavLink
+        to="/observsations/create"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        | Submit Observation
+        <i className="far fa-plus-square"></i>
+      </NavLink>
+    </>
+  );
+
+  const loggedInNav = (
+    <>
+      <NavLink
+        to="/feed"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        Feed
+        <i className="fas fa-stream"></i>
+      </NavLink>
+      <NavLink
+        to="/liked"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        Liked
+        <i className="fas fa-heart"></i>
+      </NavLink>
+      <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
+        Sign out
+        <i className="fas fa-sign-out-alt"></i>
+      </NavLink>
+    </>
+  );
+
   const loggedOutNav = (
     <>
       <NavLink
@@ -33,6 +89,7 @@ const NavBar = () => {
         <NavLink to="/">
           <Navbar.Brand>Project Community</Navbar.Brand>
         </NavLink>
+        {currentUser && addUserSubmit}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-right">
