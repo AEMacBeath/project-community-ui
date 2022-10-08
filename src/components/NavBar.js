@@ -38,7 +38,7 @@ const NavBar = () => {
         />
       </NavLink>
       <NavLink
-        to="/observsations/create"
+        to="/observations/create"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
