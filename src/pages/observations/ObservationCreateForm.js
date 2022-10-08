@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,6 +13,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function ObservationCreateForm() {
   const [errors, setErrors] = useState({});
@@ -23,6 +25,9 @@ function ObservationCreateForm() {
     image: "",
   });
   const { title, content, image } = observationData;
+
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setObservationData({
@@ -38,6 +43,25 @@ function ObservationCreateForm() {
         ...observationData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const {data} = await axiosReq.post('/observations/', formData);
+      history.push(`/observations/${data.id}`)
+    } catch(err) {
+      console.log(err)
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data)
+      }
     }
   };
 
@@ -77,7 +101,7 @@ function ObservationCreateForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
@@ -87,10 +111,13 @@ function ObservationCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.image} src={image} rounded/>
+                    <Image className={appStyles.image} src={image} rounded />
                   </figure>
                   <div>
-                    <Form.Label className={btnStyles.Button} htmlFor="image-upload">
+                    <Form.Label
+                      className={btnStyles.Button}
+                      htmlFor="image-upload"
+                    >
                       Change the image
                     </Form.Label>
                   </div>
@@ -110,6 +137,7 @@ function ObservationCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
