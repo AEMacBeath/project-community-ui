@@ -12,7 +12,7 @@ import styles from "../../styles/ObservationCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -55,12 +55,12 @@ function ObservationCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const {data} = await axiosReq.post('/observations/', formData);
-      history.push(`/observations/${data.id}`)
-    } catch(err) {
-      console.log(err)
+      const { data } = await axiosReq.post("/observations/", formData);
+      history.push(`/observations/${data.id}`);
+    } catch (err) {
+      console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.response?.data)
+        setErrors(err.response?.data);
       }
     }
   };
@@ -76,6 +76,11 @@ function ObservationCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -87,15 +92,24 @@ function ObservationCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
-      >
-        cancel
-      </Button>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         create
+      </Button>
+      {errors?.non_field_errors?.map((message, idx) => (
+        <Alert key={idx} variant="warning" className="mt-3">
+          {message}
+        </Alert>
+      ))}
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        onClick={() => history.goBack()}
+      >
+        cancel
       </Button>
     </div>
   );
@@ -140,6 +154,11 @@ function ObservationCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
