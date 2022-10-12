@@ -6,6 +6,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ObservationCreateForm from "./pages/observations/ObservationCreateForm";
+import ObservationPage from "./pages/observations/ObservationPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/observations/create" render={() => <ObservationCreateForm />} />
+          <Route exact path="/observations/:id" render={() => <ObservationPage />} />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
