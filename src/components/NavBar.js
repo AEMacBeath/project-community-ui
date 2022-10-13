@@ -17,7 +17,7 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await axios.post("/dj-rest-auth/logout/");
+      await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
     } catch (err) {
       console.log(err);
@@ -66,9 +66,8 @@ const NavBar = () => {
         Liked
         <i className="fas fa-heart"></i>
       </NavLink>
-      <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
-        Sign out
-        <i className="fas fa-sign-out-alt"></i>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
     </>
   );

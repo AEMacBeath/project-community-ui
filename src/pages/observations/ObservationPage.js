@@ -11,7 +11,7 @@ import Observation from "./Observation";
 
 function ObservationPage() {
   const { id } = useParams();
-  const [observation, setObservation] = useState({ results: [] });
+  const [observation, setObservations] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -19,7 +19,7 @@ function ObservationPage() {
         const [{ data: observation }] = await Promise.all([
           axiosReq.get(`/observations/${id}`),
         ]);
-        setObservation({results: [observation]})
+        setObservations({results: [observation]})
         console.log(observation)
       } catch (err) {
         console.log(err);
@@ -33,7 +33,7 @@ function ObservationPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
-        <Observation {...observation.results[0]} setObservation={setObservation} observationPage />
+        <Observation {...observation.results[0]} setObservations={setObservations} observationPage />
         <Container className={appStyles.Content}>Comments</Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
