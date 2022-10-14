@@ -51,14 +51,6 @@ const NavBar = () => {
   const loggedInNav = (
     <>
       <NavLink
-        to="/feed"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        Feed
-        <i className="fas fa-stream"></i>
-      </NavLink>
-      <NavLink
         to="/liked"
         className={styles.NavLink}
         activeClassName={styles.Active}
