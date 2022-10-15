@@ -27,8 +27,12 @@ function App() {
           <Route
             exact
             path="/liked"
-            render={() => <ObservationsPage message="You have not liked any observations yet." />}
-            filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+            render={() => (
+              <ObservationsPage
+                message="No results found. Adjust the search keyword or like a post."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
