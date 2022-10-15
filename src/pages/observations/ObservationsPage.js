@@ -16,6 +16,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import PopularObservations from "./PopularObservations";
 
 function ObservationsPage({ message, filter = "" }) {
   const [observations, setObservations] = useState({ results: [] });
@@ -50,7 +51,7 @@ function ObservationsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles mobile</p>
+        <PopularObservations mobile />
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
@@ -95,7 +96,7 @@ function ObservationsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular profiles for desktop</p>
+        <PopularObservations />
       </Col>
     </Row>
   );
