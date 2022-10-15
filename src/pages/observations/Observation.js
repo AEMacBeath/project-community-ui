@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Observation = (props) => {
   const {
@@ -25,6 +27,20 @@ const Observation = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/observations/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/observations/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
@@ -33,7 +49,11 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? { ...observation, likes_count: observation.likes_count + 1, like_id: data.id }
+            ? {
+                ...observation,
+                likes_count: observation.likes_count + 1,
+                like_id: data.id,
+              }
             : observation;
         }),
       }));
@@ -49,9 +69,13 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? { ...observation, likes_count: observation.likes_count - 1, like_id: null }
+            ? {
+                ...observation,
+                likes_count: observation.likes_count - 1,
+                like_id: null,
+              }
             : observation;
-        }), 
+        }),
       }));
     } catch (err) {
       console.log(err);
@@ -68,7 +92,12 @@ const Observation = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && observationPage && "..."}
+            {is_owner && observationPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
