@@ -8,8 +8,8 @@ import SignInForm from "./pages/auth/SignInForm";
 import ObservationCreateForm from "./pages/observations/ObservationCreateForm";
 import ObservationPage from "./pages/observations/ObservationPage";
 import ObservationsPage from "./pages/observations/ObservationsPage";
-import { useCurrentUser } from "./contexts/currentUserContext";
 import ObservationEditForm from "./pages/observations/ObservationEditForm";
+import { useCurrentUser } from "./contexts/currentUserContext";
 
 function App() {
   const currentUser = useCurrentUser();

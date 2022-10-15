@@ -13,6 +13,10 @@ import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+
 function ObservationPage() {
   const { id } = useParams();
   const [observation, setObservations] = useState({ results: [] });
@@ -60,9 +64,20 @@ function ObservationPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment} />
-            ))
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setObservations={setObservations}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (
