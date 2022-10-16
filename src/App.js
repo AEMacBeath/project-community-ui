@@ -10,6 +10,7 @@ import ObservationPage from "./pages/observations/ObservationPage";
 import ObservationsPage from "./pages/observations/ObservationsPage";
 import ObservationEditForm from "./pages/observations/ObservationEditForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -48,6 +49,7 @@ function App() {
             render={() => <ObservationPage />}
           />
           <Route exact path="/observations/:id/edit" render={() => <ObservationEditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>
