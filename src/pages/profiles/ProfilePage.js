@@ -23,10 +23,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Observation from "../observations/Observation";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profileObservations, setProfileObservations] = useState({ results: [] });
+  const [profileObservations, setProfileObservations] = useState({
+    results: [],
+  });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -45,7 +48,7 @@ function ProfilePage() {
             axiosReq.get(`/observations/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
-          ...prevState, 
+          ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfileObservations(profileObservations);
@@ -59,6 +62,7 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -92,12 +96,18 @@ function ProfilePage() {
       {profileObservations.results.length ? (
         <InfiniteScroll
           children={profileObservations.results.map((observation) => (
-            <Observation key={observation.id} {...observation} setObservations={setProfileObservations} />
+            <Observation
+              key={observation.id}
+              {...observation}
+              setObservations={setProfileObservations}
+            />
           ))}
           dataLength={profileObservations.results.length}
           loader={<Asset spinner />}
           hasMore={!!profileObservations.next}
-          next={() => fetchMoreData(profileObservations, setProfileObservations)}
+          next={() =>
+            fetchMoreData(profileObservations, setProfileObservations)
+          }
         />
       ) : (
         <Asset
