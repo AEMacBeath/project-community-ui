@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import { useObservationData } from "../../contexts/PopularObservationContext";
 import appStyles from "../../App.module.css";
 import PopularObservation from "./PopularObservation";

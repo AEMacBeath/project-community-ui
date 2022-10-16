@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
