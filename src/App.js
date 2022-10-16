@@ -9,7 +9,7 @@ import ObservationCreateForm from "./pages/observations/ObservationCreateForm";
 import ObservationPage from "./pages/observations/ObservationPage";
 import ObservationsPage from "./pages/observations/ObservationsPage";
 import ObservationEditForm from "./pages/observations/ObservationEditForm";
-import { useCurrentUser } from "./contexts/currentUserContext";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
   const currentUser = useCurrentUser();

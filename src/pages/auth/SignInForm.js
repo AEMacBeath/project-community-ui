@@ -5,7 +5,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/currentUserContext";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignUpForm = () => {
   const setCurrentUser = useSetCurrentUser();

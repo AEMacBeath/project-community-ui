@@ -11,7 +11,7 @@ import Observation from "./Observation";
 import Comment from "../comments/Comment";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/currentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";

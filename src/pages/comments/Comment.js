@@ -6,7 +6,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/currentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 const Comment = (props) => {
