@@ -6,9 +6,11 @@ import btnStyles from "../../styles/Button.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -33,7 +35,7 @@ const SignUpForm = () => {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signUpData);
       setCurrentUser(data.user);
-      history.push("/");
+      history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
     }
