@@ -40,3 +40,4 @@
 -   code Institute - [template](https://github.com/Code-Institute-Org/cra-template-moments.git) used to install dependencies and versions used in Moments walkthrough
 -   [favicon.io](https://favicon.io/favicon-generator/) - to create project favicon
 -   [Lucid] - used to create wireframes
+-   [Google fonts Oswald (Light 300)](https://fonts.google.com/specimen/Oswald?preview.text=Project%20Community&preview.text_type=custom)

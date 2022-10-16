@@ -16,7 +16,7 @@ import Avatar from "./Avatar";
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -31,23 +31,12 @@ const NavBar = () => {
   const addUserSubmit = (
     <>
       <NavLink
-        to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <Avatar
-          src={currentUser?.profile_image}
-          text={currentUser?.username}
-          height={40}
-        />
-      </NavLink>
-      <NavLink
         to="/observations/create"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        | Submit Observation
-        <i className="far fa-plus-square"></i>
+        Add Observation
+        <i className="fas fa-plus"></i>
       </NavLink>
     </>
   );
@@ -55,15 +44,24 @@ const NavBar = () => {
   const loggedInNav = (
     <>
       <NavLink
+        to={`/profiles/${currentUser?.profile_id}`}
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        Profile
+        <i className="fas fa-user"></i>
+      </NavLink>
+      <NavLink
         to="/liked"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
         Liked
-        <i className="fas fa-heart"></i>
+        <i className="fas fa-thumbs-up"></i>
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        Sign out
+        <i className="fas fa-sign-out-alt"></i>
       </NavLink>
     </>
   );
@@ -96,9 +94,10 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand>Project Community</Navbar.Brand>
+          <Navbar.Brand>
+            <h4>Project Community</h4>
+          </Navbar.Brand>
         </NavLink>
-        {currentUser && addUserSubmit}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
@@ -114,6 +113,7 @@ const NavBar = () => {
             >
               Home<i className="fas fa-home"></i>
             </NavLink>
+            {addUserSubmit}
             {currentUser ? loggedInNav : loggedOutNav}
           </Nav>
         </Navbar.Collapse>
