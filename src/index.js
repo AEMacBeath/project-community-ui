@@ -9,7 +9,6 @@ import { ObservationDataProvider } from "./contexts/PopularObservationContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ObservationDataProvider>
@@ -18,8 +17,7 @@ ReactDOM.render(
           </ProfileDataProvider>
         </ObservationDataProvider>
       </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById("root")
 );
 
