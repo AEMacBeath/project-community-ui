@@ -41,3 +41,4 @@
 -   [favicon.io](https://favicon.io/favicon-generator/) - to create project favicon
 -   [Lucid] - used to create wireframes
 -   [Google fonts Oswald (Light 300)](https://fonts.google.com/specimen/Oswald?preview.text=Project%20Community&preview.text_type=custom)
+-   Upload and no-results icons from [icons8](https://icons8.com/)

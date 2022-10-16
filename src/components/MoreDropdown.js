@@ -29,31 +29,40 @@ export const MoreDropdown = ({handleEdit, handleDelete}) => {
   );
 };
 
+const EditPen = React.forwardRef(({ onClick }, ref) => (
+  <i
+    className="fas fa-pen"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  />
+));
+
 export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
-    <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+    <Dropdown className={`mr-auto px-3 ${styles.Absolute}`} drop="right">
+      <Dropdown.Toggle as={EditPen} />
       <Dropdown.Menu>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> edit profile
+          Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
-          <i className="far fa-id-card" />
-          change username
+          Change Username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
-          <i className="fas fa-key" />
-          change password
+          Update Password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

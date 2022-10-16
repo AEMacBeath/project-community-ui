@@ -61,8 +61,8 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
+        {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -79,10 +79,6 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right">
-          <p>Follow button</p>
-        </Col>
-        <Col className="p-3">Profile content</Col>
       </Row>
     </>
   );
