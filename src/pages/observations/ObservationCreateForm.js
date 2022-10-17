@@ -68,7 +68,7 @@ function ObservationCreateForm() {
   };
 
   const textFields = (
-    <div className="text-center">
+    <div>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -89,7 +89,7 @@ function ObservationCreateForm() {
         <Form.Control
           as="textarea"
           name="content"
-          rows={6}
+          rows={4}
           value={content}
           onChange={handleChange}
         />
@@ -99,19 +99,16 @@ function ObservationCreateForm() {
           {message}
         </Alert>
       ))}
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+      <Button className={btnStyles.Btn} type="submit">
+        Submit
       </Button>
       {errors?.non_field_errors?.map((message, idx) => (
         <Alert key={idx} variant="warning" className="mt-3">
           {message}
         </Alert>
       ))}
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
+      <Button className={btnStyles.Btn} onClick={() => history.goBack()}>
+        Cancel
       </Button>
     </div>
   );
@@ -119,7 +116,10 @@ function ObservationCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
+          <Container className={appStyles.Content}>{textFields}</Container>
+        </Col>
+        <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -127,11 +127,11 @@ function ObservationCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.image} src={image} rounded />
+                    <Image className={styles.image} src={image} />
                   </figure>
                   <div>
                     <Form.Label
-                      className={btnStyles.Button}
+                      className={btnStyles.Btn}
                       htmlFor="image-upload"
                     >
                       Change the image
@@ -149,7 +149,7 @@ function ObservationCreateForm() {
                   />
                 </Form.Label>
               )}
-              <Form.File
+              <Form.File className={styles.File}
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
@@ -163,9 +163,6 @@ function ObservationCreateForm() {
             ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
