@@ -9,3 +9,12 @@
     right: 0;
     z-index: 99;
 }
+
+i {
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.582);
+}
+
+i:hover {
+    color: black;
+}
