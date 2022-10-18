@@ -9,8 +9,7 @@ import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-
-
+import { Col, Row } from "react-bootstrap";
 
 const Observation = (props) => {
   const {
@@ -87,15 +86,14 @@ const Observation = (props) => {
   };
 
   return (
-    <Card className={styles.Observation}>
-      <Card.Body>
+    <Card className="text-center">
+      <Card.Header>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
             {is_owner && (
               <MoreDropdown
                 handleEdit={handleEdit}
@@ -104,44 +102,53 @@ const Observation = (props) => {
             )}
           </div>
         </Media>
-      </Card.Body>
-      <Link to={`/observations/${id}`}>
-        <Card.Img src={image} alt={title} className={styles.Image}/>
-      </Link>
+      </Card.Header>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
-        <div className={styles.ObservationBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own observation!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like observations!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {likes_count}
-          <Link to={`/observations/${id}`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
-        </div>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{content}</Card.Text>
+        <Link to={`/observations/${id}`}>
+          <Card.Img src={image} alt={title} className={styles.Image} />
+        </Link>
       </Card.Body>
+      <Card.Footer className="text-muted">
+        <Row>
+          <Col>
+            {likes_count} Likes
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip>You can't like your own observation!</Tooltip>
+                }
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            ) : like_id ? (
+              <span onClick={handleUnlike}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleLike}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like observations!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            )}
+          </Col>
+          <Col>
+            {comments_count} Comments
+            <Link to={`/observations/${id}`}>
+              <i className="far fa-comments" />
+            </Link>
+          </Col>
+          <Col className={styles.Updated}>{updated_at}</Col>
+        </Row>
+      </Card.Footer>
     </Card>
   );
 };
