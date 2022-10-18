@@ -126,17 +126,12 @@ function ObservationCreateForm() {
             <Form.Group className="text-center">
               {image ? (
                 <>
+                  <Form.Label htmlFor="image-upload">
+                    Click to change the image
+                  </Form.Label>
                   <figure>
                     <Image className={styles.image} src={image} />
                   </figure>
-                  <div>
-                    <Form.Label
-                      className={btnStyles.Btn}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
                 </>
               ) : (
                 <Form.Label
@@ -149,7 +144,7 @@ function ObservationCreateForm() {
                   />
                 </Form.Label>
               )}
-              <Form.File className={styles.File}
+              <Form.File
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
