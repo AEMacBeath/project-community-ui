@@ -121,29 +121,29 @@ const Observation = (props) => {
                   <Tooltip>You can't like your own observation!</Tooltip>
                 }
               >
-                <i className="far fa-heart" />
+                <i className="far fa-thumbs-up" />
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fas fa-thumbs-up ${styles.thumb}`} />
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
+                <i className={`far fa-thumbs-up ${styles.thumbOutline}`} />
               </span>
             ) : (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to like observations!</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className="far fa-thumbs-up" />
               </OverlayTrigger>
             )}
           </Col>
           <Col>
             {comments_count} Comments
             <Link to={`/observations/${id}`}>
-              <i className="far fa-comments" />
+              <i className="far fa-comment" />
             </Link>
           </Col>
           <Col className={styles.Updated}>{updated_at}</Col>
