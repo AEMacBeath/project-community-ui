@@ -20,7 +20,7 @@ import PopularObservations from "./PopularObservations";
 
 function ObservationPage() {
   const { id } = useParams();
-  const [observation, setObservations] = useState({ results: [] });
+  const [observation, setObservation] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
@@ -33,8 +33,8 @@ function ObservationPage() {
           axiosReq.get(`/observations/${id}`),
           axiosReq.get(`/comments/?observation=${id}`),
         ]);
-        setObservations({ results: [observation] });
-        console.log(observation);
+        setObservation({ results: [observation] });
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -49,7 +49,7 @@ function ObservationPage() {
         <PopularObservations mobile />
         <Observation
           {...observation.results[0]}
-          setObservations={setObservations}
+          setObservation={setObservation}
           observationPage
         />
         <Container className={appStyles.Content}>
@@ -58,7 +58,7 @@ function ObservationPage() {
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
               observation={id}
-              setObservations={setObservations}
+              setObservation={setObservation}
               setComments={setComments}
             />
           ) : comments.results.length ? (
@@ -70,7 +70,7 @@ function ObservationPage() {
                 <Comment
                   key={comment.id}
                   {...comment}
-                  setObservations={setObservations}
+                  setObservation={setObservation}
                   setComments={setComments}
                 />
               ))}
