@@ -11,7 +11,6 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { Col, Row } from "react-bootstrap";
 
-
 const Observation = (props) => {
   const {
     id,
@@ -53,13 +52,15 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? { ...observation, likes_count: observation.likes_count + 1, like_id: data.id }
+            ? {
+                ...observation,
+                likes_count: observation.likes_count + 1,
+                like_id: data.id,
+              }
             : observation;
         }),
       }));
-    } catch (err) {
-      // console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -69,20 +70,22 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? { ...observation, likes_count: observation.likes_count - 1, like_id: null }
+            ? {
+                ...observation,
+                likes_count: observation.likes_count - 1,
+                like_id: null,
+              }
             : observation;
         }),
       }));
-    } catch (err) {
-      // console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
     <Card className={styles.Observation}>
-      <Card.Header>
+      <Card.Header className={styles.HeaderFooter}>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+          <Link className={styles.UserName} to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
@@ -103,7 +106,7 @@ const Observation = (props) => {
           <Card.Img src={image} alt={title} className={styles.Image} />
         </Link>
       </Card.Body>
-      <Card.Footer className="text-muted">
+      <Card.Footer className={styles.HeaderFooter}>
         <Row>
           <Col>
             {likes_count} Likes

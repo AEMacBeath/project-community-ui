@@ -1,14 +1,23 @@
 .Observation {
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.080);
   margin-bottom: 16px;
-  text-align: center;
+  border: 1px solid #ffc400;
+  width: auto;
+}
+
+.HeaderFooter {
+  background-color: #ffc400;
 }
 
 .Updated {
   padding: 5px;
 }
 
-.Observation figure,
-h5 {
-  margin: 0 0;
+.UserName {
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.582);
+}
+
+.UserName:hover {
+  color: black;
 }
