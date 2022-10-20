@@ -17,16 +17,16 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularObservations from "./PopularObservations";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ObservationsPage({ message, filter = "" }) {
   const [observations, setObservations] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchObservations = async () => {
@@ -55,7 +55,6 @@ function ObservationsPage({ message, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularObservations mobile />
-
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}

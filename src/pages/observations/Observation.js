@@ -52,16 +52,12 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? {
-                ...observation,
-                likes_count: observation.likes_count + 1,
-                like_id: data.id,
-              }
+            ? { ...observation, likes_count: observation.likes_count + 1, like_id: data.id }
             : observation;
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -72,16 +68,12 @@ const Observation = (props) => {
         ...prevObservations,
         results: prevObservations.results.map((observation) => {
           return observation.id === id
-            ? {
-                ...observation,
-                likes_count: observation.likes_count - 1,
-                like_id: null,
-              }
+            ? { ...observation, likes_count: observation.likes_count - 1, like_id: null }
             : observation;
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

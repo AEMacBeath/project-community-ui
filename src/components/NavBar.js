@@ -48,7 +48,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        Profile
+        {currentUser?.username}'s Profile
         <i className="fas fa-user"></i>
       </NavLink>
       <NavLink
