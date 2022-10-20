@@ -3,12 +3,12 @@ import styles from "../../styles/PopularObservation.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 
+
 const PopularObservation = (props) => {
-  const { observation, mobile, imageSize = 100 } = props;
+  const { observation, mobile, imageSize = 50 } = props;
   const { id, title, image, owner } = observation;
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
 
   return (
     <div

@@ -18,6 +18,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularObservations from "./PopularObservations";
 
+
 function ObservationPage() {
   const { id } = useParams();
   const [observation, setObservation] = useState({ results: [] });

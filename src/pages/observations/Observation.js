@@ -11,6 +11,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { Col, Row } from "react-bootstrap";
 
+
 const Observation = (props) => {
   const {
     id,
@@ -78,7 +79,7 @@ const Observation = (props) => {
   };
 
   return (
-    <Card className="text-center">
+    <Card className={styles.Observation}>
       <Card.Header>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>

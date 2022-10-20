@@ -1,0 +1,1 @@
+<!--Credits - https://safetyrisk.net/safety-photos-funny-fails/-->

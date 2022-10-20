@@ -18,7 +18,7 @@ const PopularObservations = ({ mobile }) => {
           <h5>Popular observations</h5>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {popularObservations.results.slice(0, 2).map((observation) => (
+              {popularObservations.results.slice(0, 3).map((observation) => (
                 <PopularObservation
                   key={observation.id}
                   observation={observation}
