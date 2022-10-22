@@ -39,20 +39,20 @@ const NavBar = () => {
         <i className="fas fa-plus"></i>
       </NavLink>
       <NavLink
+        to="/liked"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        Liked Observations
+        <i className="fas fa-thumbs-up"></i>
+      </NavLink>
+      <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
         {currentUser?.username}'s Profile
         <i className="fas fa-user"></i>
-      </NavLink>
-      <NavLink
-        to="/liked"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        Liked
-        <i className="fas fa-thumbs-up"></i>
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         Sign out

@@ -141,7 +141,7 @@ function ObservationEditForm() {
               </figure>
               <div>
                 <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  className={btnStyles.Btn}
                   htmlFor="image-upload"
                 >
                   Change the image
