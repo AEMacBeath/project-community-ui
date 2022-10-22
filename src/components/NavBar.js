@@ -28,7 +28,7 @@ const NavBar = () => {
     }
   };
 
-  const addUserSubmit = (
+  const loggedInNav = (
     <>
       <NavLink
         to="/observations/create"
@@ -38,11 +38,6 @@ const NavBar = () => {
         Add Observation
         <i className="fas fa-plus"></i>
       </NavLink>
-    </>
-  );
-
-  const loggedInNav = (
-    <>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
         className={styles.NavLink}
@@ -113,7 +108,6 @@ const NavBar = () => {
             >
               Home<i className="fas fa-home"></i>
             </NavLink>
-            {addUserSubmit}
             {currentUser ? loggedInNav : loggedOutNav}
           </Nav>
         </Navbar.Collapse>
