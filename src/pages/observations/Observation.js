@@ -109,7 +109,7 @@ const Observation = (props) => {
       <Card.Footer className={styles.HeaderFooter}>
         <Row>
           <Col>
-            {likes_count} Likes
+            {likes_count} {likes_count === 1 ? "Like" : "Likes"}
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
@@ -137,7 +137,7 @@ const Observation = (props) => {
             )}
           </Col>
           <Col>
-            {comments_count} Comments
+            {comments_count} {comments_count === 1 ? "Comment" : "Comments"}
             <Link to={`/observations/${id}`}>
               <i className="far fa-comment" />
             </Link>
