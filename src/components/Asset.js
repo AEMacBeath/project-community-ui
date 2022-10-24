@@ -2,6 +2,9 @@ import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Asset.module.css";
 
+{
+  /* Asset is a spinner to display while components are loading. */
+}
 const Asset = ({ spinner, src, message }) => {
   return (
     <div className={`${styles.Asset} p-4`}>

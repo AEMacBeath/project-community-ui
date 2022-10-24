@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "../styles/Avatar.module.css";
 
+{
+  /* Avatar displays a user's profile picture in a circle border. */
+}
 const Avatar = ({ src, height = 45, text }) => {
   return (
     <span>

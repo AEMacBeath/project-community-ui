@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import btnStyles from "../styles/Button.module.css";
 
+{
+  /*
+Delete confirmation is a Bootstrap modal for the 
+user to confirm deletion of a comment or observations.
+*/
+}
 const DeleteConfirmation = ({ handleDelete }) => {
   const [show, setShow] = useState(false);
 
@@ -10,9 +16,8 @@ const DeleteConfirmation = ({ handleDelete }) => {
 
   return (
     <>
-      <Dropdown.Item onClick={handleShow}>
-        Delete
-      </Dropdown.Item>
+      {/* Reveals the modal when clicked. */}
+      <Dropdown.Item onClick={handleShow}>Delete</Dropdown.Item>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -23,7 +28,7 @@ const DeleteConfirmation = ({ handleDelete }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button class={`${btnStyles.Btn} btn`} onClick={handleDelete}>
+          <Button class={btnStyles.Btn} onClick={handleDelete}>
             Delete
           </Button>
         </Modal.Footer>

@@ -11,8 +11,10 @@ import {
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
-import Avatar from "./Avatar";
 
+{
+  /* NavBar contians a Logo and varying NavLink, depending on users logged in status. */
+}
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -27,7 +29,9 @@ const NavBar = () => {
       console.log(err);
     }
   };
-
+  {
+    /* NavLinks to be displayed when a user is logged in. */
+  }
   const loggedInNav = (
     <>
       <NavLink
@@ -60,7 +64,9 @@ const NavBar = () => {
       </NavLink>
     </>
   );
-
+  {
+    /* NavLinks to be displayed when a user is not logged in. */
+  }
   const loggedOutNav = (
     <>
       <NavLink

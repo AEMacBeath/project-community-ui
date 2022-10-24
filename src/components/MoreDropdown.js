@@ -4,8 +4,9 @@ import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 import DeleteConfirmation from "./DeleteConfirmation";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
+{
+  /* EditPen displays the dropdown menu as a fa pen icon */
+}
 const EditPen = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-pen"
@@ -17,6 +18,9 @@ const EditPen = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+{
+  /* MoreDropdown is the dropdown menu used on Comments and Observations */
+}
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="right">
@@ -30,6 +34,9 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
+{
+  /* ProfileEditDropdown is the dropdown menu used on ProfilePage */
+}
 export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
