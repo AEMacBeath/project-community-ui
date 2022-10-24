@@ -36,10 +36,11 @@ const Observation = (props) => {
     history.push(`/observations/${id}/edit`);
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (handleClose) => {
     try {
       await axiosRes.delete(`/observations/${id}/`);
       history.goBack();
+      handleClose();
     } catch (err) {
       console.log(err);
     }

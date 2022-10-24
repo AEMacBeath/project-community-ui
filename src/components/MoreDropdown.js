@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -16,14 +17,14 @@ const EditPen = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = ({handleEdit, handleDelete}) => {
+export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="right">
       <Dropdown.Toggle as={EditPen} />
 
       <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
         <Dropdown.Item onClick={handleEdit}>Edit</Dropdown.Item>
-        <Dropdown.Item onClick={handleDelete}>Delete</Dropdown.Item>
+        <DeleteConfirmation handleDelete={handleDelete} />
       </Dropdown.Menu>
     </Dropdown>
   );
