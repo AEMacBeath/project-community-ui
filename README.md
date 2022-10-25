@@ -1,7 +1,15 @@
 # Project Community - React App
 
 ## Project Description
-Project Community is a social media platform designed for users to share safety observation reports. The application is made up of a Django API ([project-community-api](https://project-community-api.herokuapp.com/)) and a React app ([project-community-ci](https://project-community-ci.herokuapp.com)).
+Project Community is a social media platform designed for users to share safety observation reports. The application is made up of a Django API and a React app.
+
+### API
+GitHub Repository - [project-community-api](https://github.com/AEMacBeath/project-community-api)<br>
+Heroku App - [project-community-api](https://project-community-api.herokuapp.com/)
+
+### React App
+GitHub Repository - [project-community-ui](https://github.com/AEMacBeath/project-community-ui)<br>
+Heroku App - [project-community-ci](https://project-community-ci.herokuapp.com)
 
 ## Responsive Screenshot
 
