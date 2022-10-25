@@ -11,6 +11,7 @@ import {
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
+import SignOutConfirmation from "./SignOutConfirmation";
 
 {
   /* NavBar contians a Logo and varying NavLink, depending on users logged in status. */
@@ -58,10 +59,7 @@ const NavBar = () => {
         {currentUser?.username}'s Profile
         <i className="fas fa-user"></i>
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        Sign out
-        <i className="fas fa-sign-out-alt"></i>
-      </NavLink>
+      <SignOutConfirmation handleSignOut={handleSignOut} />
     </>
   );
   {

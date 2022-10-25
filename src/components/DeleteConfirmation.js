@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
+import styles from "../styles/Modal.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 {
@@ -21,9 +22,8 @@ const DeleteConfirmation = ({ handleDelete }) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Delete, xx ?</Modal.Title>
+          <Modal.Body>Are you sure you want to delete this? </Modal.Body>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to delete</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
