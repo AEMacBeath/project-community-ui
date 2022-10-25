@@ -64,6 +64,15 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
     Fix:    [Updated Package.json to fix error in Heroku.](https://github.com/AEMacBeath/project-community-ui/commit/bd9df922f9df2b69aba6d8d3d196b8b365a7d5c0)<br>
     Credit: [Link to Solution on stackoverflow](https://stackoverflow.com/questions/69665222/node-js-17-0-1-gatsby-error-digital-envelope-routinesunsupported-err-os)
 
+## Technologies Used
+-   HTML
+-   CSS
+-   React JS
+-   React-Bootstrap
+-   GitHub
+-   GitPod
+-   Heroku
+-   Cloudinary
 
 ## Testing
 ### Automated
