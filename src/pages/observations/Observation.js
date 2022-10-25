@@ -84,30 +84,36 @@ const Observation = (props) => {
 
   return (
     <Card className={styles.Observation}>
-      <Card.Header className={styles.HeaderFooter}>
-        <Media className="align-items-center justify-content-between">
-          <Link className={styles.UserName} to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-          <div className="d-flex align-items-center">
-            {is_owner && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
-          </div>
-        </Media>
-      </Card.Header>
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{content}</Card.Text>
-        <Link to={`/observations/${id}`}>
-          <Card.Img src={image} alt={title} className={styles.Image} />
-        </Link>
+        <Row>
+          <Col md={10}>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>{content}</Card.Text>
+            <Link to={`/observations/${id}`}>
+              <Card.Img src={image} alt={title} className={styles.Image} />
+            </Link>
+          </Col>
+          <Col md={2}>
+            <Media>
+              <Link className={styles.UserName} to={`/profiles/${profile_id}`}>
+                <div>
+                  <Avatar src={profile_image} height={55} />
+                </div>
+                <div>{owner}</div>
+              </Link>
+              <div className="d-flex align-items-center">
+                {is_owner && (
+                  <MoreDropdown
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
+                  />
+                )}
+              </div>
+            </Media>
+          </Col>
+        </Row>
       </Card.Body>
-      <Card.Footer className={styles.HeaderFooter}>
+      <Card.Footer className={styles.Footer}>
         <Row>
           <Col>
             {likes_count} {likes_count === 1 ? "Like" : "Likes"}
@@ -137,12 +143,12 @@ const Observation = (props) => {
               </OverlayTrigger>
             )}
           </Col>
-          <Col>
-            {comments_count} {comments_count === 1 ? "Comment" : "Comments"}
-            <Link to={`/observations/${id}`}>
+          <Link to={`/observations/${id}`}>
+            <Col>
+              {comments_count} {comments_count === 1 ? "Comment" : "Comments"}
               <i className="far fa-comment" />
-            </Link>
-          </Col>
+            </Col>
+          </Link>
           <Col className={styles.Updated}>{updated_at}</Col>
         </Row>
       </Card.Footer>

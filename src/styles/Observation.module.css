@@ -1,25 +1,30 @@
 .Observation {
-  background-color: rgba(0, 0, 0, 0.080);
+  background-color: #343a40;
   margin-bottom: 16px;
   border: 1px solid #ffc400;
   width: auto;
 }
 
-.HeaderFooter {
+.UserName {
+  padding: 10px;
+  color: #ffc400;
+  text-align: center;
+}
+
+.UserName:hover {
+  color: whitesmoke;
+}
+
+.Footer {
   background-color: #ffc400;
-  height: 75px;
-  padding: 0;
+  color: #343a40;
+  text-align: center;
+}
+
+a {
+  color: #343a40;
 }
 
 .Updated {
   padding: 5px;
-}
-
-.UserName {
-  padding: 10px;
-  color: #343a40;
-}
-
-.UserName:hover {
-  color: black;
 }

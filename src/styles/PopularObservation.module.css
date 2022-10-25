@@ -1,7 +1,9 @@
-.WordBreak {
-    word-break: break-all;
-}
-
-.Image {
-    border-radius: 20%;
+.Thumbnail {
+    object-fit: cover;
+    background-color: #343a40;
+    border: 1px solid #ffc400;
+    border-radius: 0.25rem;
+    width: 150px;
+    height: 150px;
+    margin: 7px;
 }

@@ -2,30 +2,30 @@ import React from "react";
 import styles from "../../styles/PopularObservation.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
-
+import { Button, Image, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const PopularObservation = (props) => {
-  const { observation, mobile, imageSize = 50 } = props;
-  const { id, title, image, owner } = observation;
+  const { observation, mobile } = props;
+  const { id, image, title } = observation;
 
   const currentUser = useCurrentUser();
 
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {title}
+    </Tooltip>
+  );
+
   return (
-    <div
-      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+    <OverlayTrigger
+      placement="top"
+      delay={{ show: 250, hide: 400 }}
+      overlay={renderTooltip}
     >
-      <Link
-        className={`"align-self-center" ${styles.Image}`}
-        to={`/observations/${id}`}
-      >
-        <div>
-          <img src={image} height={imageSize} />
-        </div>
+      <Link to={`/observations/${id}`}>
+        <Image className={styles.Thumbnail} src={image} thumbnail />
       </Link>
-      <div className={`mx-2 ${styles.WordBreak}`}>
-        <strong>{title}</strong>
-      </div>
-    </div>
+    </OverlayTrigger>
   );
 };
 
