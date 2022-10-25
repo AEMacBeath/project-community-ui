@@ -68,13 +68,19 @@ The below functionality had been tested on the deployed [Project Communeity](htt
 ### Validator
 
 ## Libraries
+-   react-inifinite-scroll-component
+-   react-bootstrap
 
 ## Contexts
+-   CurrentUserContext exposes the user state to the entire app. Relevany components can subscribe to its changes.
+-   PopularObservationContext exposes the observations state to the entire app. Enables the PopularObservations component to be in sync with the ObservationPage.
+<!-- ProfileDataContext exposes the profile state to the entire app. Am i using this??-->
 
 ## Hooks
+-   useClickOutsideToggle enables toggle on the burger menu.
+-   useRedirect enables redirect for users who are either logged in or logged out.
 
 ## Credits
-
 
 <!--Credits - https://safetyrisk.net/safety-photos-funny-fails/-->
 
