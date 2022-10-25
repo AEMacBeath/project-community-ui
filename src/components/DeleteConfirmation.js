@@ -28,7 +28,7 @@ const DeleteConfirmation = ({ handleDelete }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button class={btnStyles.Btn} onClick={handleDelete}>
+          <Button className={`${btnStyles.Btn} btn`} onClick={handleDelete}>
             Delete
           </Button>
         </Modal.Footer>
