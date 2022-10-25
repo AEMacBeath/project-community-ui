@@ -51,10 +51,13 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 ## Page and Compenend Breakdown
 <!--Example: https://camo.githubusercontent.com/1d53f17b964eeea7bcd3b49b4e3ba4ee1d62f61092777819361b1813e1bff462/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f64676a72727664626c2f696d6167652f75706c6f61642f76313634393135353030302f6d6f6d656e74732d636f6d706f6e656e742d6d61705f7266746836712e706e67-->
 
-## Re-used components
-
-
 ## Deployment
+1.  In Heroku click on the “new” button and follow the steps to create an app.
+2.  Select Region then click “Create app”.
+3.  Connect App to Github repository.
+    -  From the “Deploy” tab, select “Github” in the “Deployment method” section.
+    -  Enter the name of the repository and then click “Connect”.
+4. Click “deploy branch” which will trigger Heroku to start building the application.
 
 ## Bugs
 1.  Bug:    opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
@@ -119,6 +122,6 @@ The below functionality had been tested on the deployed [Project Communeity](htt
 -   useRedirect enables redirect for users who are either logged in or logged out.
 
 ## Credits
-
+<!-- https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/ -->
 <!--Credits - https://safetyrisk.net/safety-photos-funny-fails/-->
 
