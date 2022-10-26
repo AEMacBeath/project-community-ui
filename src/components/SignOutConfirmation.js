@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import styles from "../styles/Modal.module.css";
 import btnStyles from "../styles/Button.module.css";
 import navStyles from "../styles/NavBar.module.css";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 {
   /*
@@ -17,6 +18,8 @@ const SignOutConfirmation = ({ handleSignOut }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const currentUser = useCurrentUser();
+
   return (
     <>
       {/* Reveals the modal when clicked. */}
@@ -25,16 +28,19 @@ const SignOutConfirmation = ({ handleSignOut }) => {
         <i className="fas fa-sign-out-alt"></i>
       </NavLink>
 
-      <Modal show={show} onHide={handleClose} className={styles.Modal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Are you sure you want to sign out?</Modal.Title>
+      <Modal show={show} onHide={handleClose}>
+      <Modal.Header>
+          <Modal.Title>
+            Hi, {currentUser.username}.
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            No, close
+        <Modal.Body>Are you sure you want to sign out?</Modal.Body>
+        <Modal.Footer className={styles.Modal}>
+          <Button className={btnStyles.BtnCancel} onClick={handleClose}>
+            Cancel
           </Button>
-          <Button className={`${btnStyles.Btn} btn`} onClick={handleSignOut}>
-            Yes, Sign out
+          <Button className={btnStyles.Btn} onClick={handleSignOut}>
+            Sign out
           </Button>
         </Modal.Footer>
       </Modal>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import styles from "../styles/Modal.module.css";
 import btnStyles from "../styles/Button.module.css";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 {
   /*
@@ -15,20 +16,25 @@ const DeleteConfirmation = ({ handleDelete }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const currentUser = useCurrentUser();
+
   return (
     <>
       {/* Reveals the modal when clicked. */}
       <Dropdown.Item onClick={handleShow}>Delete</Dropdown.Item>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Body>Are you sure you want to delete this? </Modal.Body>
+      <Modal show={show} onHide={handleClose} className={styles.Modal}>
+        <Modal.Header>
+          <Modal.Title>
+            Hi, {currentUser.username}.
+          </Modal.Title>
         </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button className={btnStyles.BtnCancel} onClick={handleClose}>
+            Cancel
           </Button>
-          <Button className={`${btnStyles.Btn} btn`} onClick={handleDelete}>
+          <Button className={btnStyles.Btn} onClick={handleDelete}>
             Delete
           </Button>
         </Modal.Footer>
