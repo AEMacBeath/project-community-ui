@@ -1,7 +1,7 @@
 .Btn {
   background-color: #ffc400;
   color: #343a40;
-  border: none;
+  border: 1px solid #ffc400;
   margin: 5px;
 }
 
@@ -9,4 +9,19 @@
   background-color: #343a40;
   color: #ffc400;
   border: 1px solid #ffc400;
+  margin: 5px;
+}
+
+.BtnCancel {
+  background-color: #343a40;
+  color: #ffc400;
+  border: 1px solid #ffc400;
+  margin: 5px;
+}
+
+.BtnCancel:hover {
+  background-color: #ffc400;
+  color: #343a40;
+  border: 1px solid #ffc400;
+  margin: 5px;
 }

@@ -1,3 +1,6 @@
 .Form {
-    border-bottom: 2px #ffc400 solid;
-  }
+  background-color: #343a40;
+  border: 2px #ffc400 solid;
+  color: whitesmoke;
+}
+

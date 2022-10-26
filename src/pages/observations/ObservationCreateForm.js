@@ -107,7 +107,7 @@ function ObservationCreateForm() {
           {message}
         </Alert>
       ))}
-      <Button className={btnStyles.Btn} onClick={() => history.goBack()}>
+      <Button className={btnStyles.BtnCancel} onClick={() => history.goBack()}>
         Cancel
       </Button>
     </div>

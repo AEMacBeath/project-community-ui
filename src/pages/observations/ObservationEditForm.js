@@ -35,7 +35,9 @@ function ObservationEditForm() {
         const { data } = await axiosReq.get(`/observations/${id}/`);
         const { title, content, image, is_owner } = data;
 
-        is_owner ? setObservationData({ title, content, image }) : history.push("/");
+        is_owner
+          ? setObservationData({ title, content, image })
+          : history.push("/");
       } catch (err) {
         console.log(err);
       }
@@ -84,7 +86,7 @@ function ObservationEditForm() {
   };
 
   const textFields = (
-    <div className="text-center">
+    <div>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -116,14 +118,11 @@ function ObservationEditForm() {
         </Alert>
       ))}
 
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
+      <Button className={btnStyles.BtnCancel} onClick={() => history.goBack()}>
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+      <Button className={btnStyles.Btn} type="submit">
+        Save
       </Button>
     </div>
   );
@@ -131,21 +130,21 @@ function ObservationEditForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
+          <Container className={appStyles.Content}>{textFields}</Container>
+        </Col>
+        <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              <figure>
-                <Image className={appStyles.Image} src={image} rounded />
-              </figure>
               <div>
-                <Form.Label
-                  className={btnStyles.Btn}
-                  htmlFor="image-upload"
-                >
-                  Change the image
+                <Form.Label htmlFor="image-upload">
+                  Click to change the image
                 </Form.Label>
+                <figure>
+                  <Image className={styles.image} src={image} />
+                </figure>
               </div>
 
               <Form.File
@@ -160,12 +159,8 @@ function ObservationEditForm() {
                 {message}
               </Alert>
             ))}
-
             <div className="d-md-none">{textFields}</div>
           </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
