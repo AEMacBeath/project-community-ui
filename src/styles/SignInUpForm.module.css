@@ -1,13 +1,18 @@
 .Container {
-    max-width: 500px;
-  }
-  
-  .Form {
-    padding-bottom: 10px;
-  }
-  
-  .Link {
-    padding: 5px;
-    color: grey;
-    text-align: left;
-  }
+  max-width: 500px;
+}
+
+.Form {
+  padding-bottom: 10px;
+}
+
+.Link {
+  padding: 5px;
+  color: whitesmoke;
+  text-align: left;
+}
+
+.Link:hover {
+  color: #ffc400;
+}
+
