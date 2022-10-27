@@ -61,8 +61,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 
 ## Bugs
 1.  Bug:    opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
-    Fix:    [Updated Package.json to fix error in Heroku.](https://github.com/AEMacBeath/project-community-ui/commit/bd9df922f9df2b69aba6d8d3d196b8b365a7d5c0)<br>
-    Credit: [Link to Solution on stackoverflow](https://stackoverflow.com/questions/69665222/node-js-17-0-1-gatsby-error-digital-envelope-routinesunsupported-err-os)
+    Fix:    [Link to Solution by trashcoder](https://github.com/facebook/create-react-app/issues/11562#issuecomment-949320790)
 
 ## Technologies Used
 -   HTML
