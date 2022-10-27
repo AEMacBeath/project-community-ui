@@ -128,11 +128,11 @@ const Observation = (props) => {
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
-                <i className={`fas fa-thumbs-up ${styles.thumb}`} />
+                <i className="fas fa-thumbs-up" />
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <i className={`far fa-thumbs-up ${styles.thumbOutline}`} />
+                <i className="far fa-thumbs-up" />
               </span>
             ) : (
               <OverlayTrigger
@@ -143,13 +143,14 @@ const Observation = (props) => {
               </OverlayTrigger>
             )}
           </Col>
-          <Link to={`/observations/${id}`}>
-            <Col>
+          <Col>
+            <Link to={`/observations/${id}`}>
               {comments_count} {comments_count === 1 ? "Comment" : "Comments"}
               <i className="far fa-comment" />
-            </Col>
-          </Link>
-          <Col className={styles.Updated}>{updated_at}</Col>
+            </Link>
+          </Col>
+
+          <Col>{updated_at}</Col>
         </Row>
       </Card.Footer>
     </Card>
