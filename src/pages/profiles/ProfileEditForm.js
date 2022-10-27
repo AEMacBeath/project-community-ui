@@ -15,6 +15,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
+import styles from "../../styles/ObservationCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -113,30 +114,24 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2">
+        <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
-            <Form.Group>
+        <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
+          <Container
+            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+          >
+            <Form.Group className="text-center">
               {image && (
-                <figure>
-                  <Image src={image} fluid />
-                </figure>
+                <div>
+                  <Form.Label htmlFor="image-upload">
+                    Click to change the image
+                  </Form.Label>
+                  <figure>
+                    <Image className={styles.image} src={image} />
+                  </figure>
+                </div>
               )}
-              {errors?.image?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              <div>
-                <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
-                  htmlFor="image-upload"
-                >
-                  Change the image
-                </Form.Label>
-              </div>
               <Form.File
                 id="image-upload"
                 ref={imageFile}
@@ -151,6 +146,11 @@ const ProfileEditForm = () => {
                 }}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
