@@ -1,27 +1,29 @@
-.Btn {
-  background-color: #ffc400;
+.Btn,
+.Btn:focus {
+  background-color: #ffc400 !important;
   color: #343a40;
-  border: 1px solid #ffc400;
+  border: 1px solid #ffc400 !important;
   margin: 5px;
+  box-shadow: none !important;
 }
 
 .Btn:hover {
-  background-color: #343a40;
+  background-color: #343a40 !important;
   color: #ffc400;
-  border: 1px solid #ffc400;
   margin: 5px;
 }
 
-.BtnCancel {
-  background-color: #343a40;
+.BtnCancel,
+.BtnCancel:focus {
+  background-color: #343a40 !important;
   color: #ffc400;
-  border: 1px solid #ffc400;
+  border: 1px solid #ffc400 !important;
   margin: 5px;
+  box-shadow: none !important;
 }
 
 .BtnCancel:hover {
-  background-color: #ffc400;
+  background-color: #ffc400 !important;
   color: #343a40;
-  border: 1px solid #ffc400;
   margin: 5px;
 }

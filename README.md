@@ -63,6 +63,11 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 1.  Bug:    opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
     Fix:    [Link to Solution by trashcoder](https://github.com/facebook/create-react-app/issues/11562#issuecomment-949320790)
 
+2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.
+    Fix:    [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
+
+
+
 ## Technologies Used
 -   HTML
 -   CSS
@@ -132,4 +137,5 @@ The below functionality had been tested on the deployed [Project Communeity](htt
 ## Credits
 <!-- https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/ -->
 <!--Credits - https://safetyrisk.net/safety-photos-funny-fails/-->
+<!--icons8-->
 

@@ -97,18 +97,18 @@ const Observation = (props) => {
             <Media>
               <Link className={styles.UserName} to={`/profiles/${profile_id}`}>
                 <div>
+                  {is_owner && (
+                    <MoreDropdown
+                      handleEdit={handleEdit}
+                      handleDelete={handleDelete}
+                    />
+                  )}
+                </div>
+                <div>
                   <Avatar src={profile_image} height={55} />
                 </div>
                 <div>{owner}</div>
               </Link>
-              <div className="d-flex align-items-center">
-                {is_owner && (
-                  <MoreDropdown
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete}
-                  />
-                )}
-              </div>
             </Media>
           </Col>
         </Row>

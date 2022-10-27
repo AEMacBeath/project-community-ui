@@ -1,20 +1,29 @@
-.Dropdownitem {
-    display: inline-block;
-    max-width: 50px;
-    padding: 0px;
+.Pen {
+  padding: 10px;
+  color: whitesmoke;
+}
+
+.Pen:hover {
+  color: #ffc400;
+}
+
+.DropdownItem,
+.DropdownItem:focus {
+  background-color: #ffc400 !important;
+  color: #343a40;
+}
+
+.DropdownItem:hover {
+  background-color: #343a40 !important;
+  color: whitesmoke;
 }
 
 .Absolute {
-    position: absolute;
-    right: 0;
-    z-index: 99;
+  position: absolute;
+  right: 0;
+  z-index: 99;
 }
 
-i {
-    padding: 10px;
-    color: rgba(0, 0, 0, 0.582);
-}
-
-i:hover {
-    color: black;
+.Menu {
+  background-color: #ffc400;
 }

@@ -9,7 +9,7 @@ import DeleteConfirmation from "./DeleteConfirmation";
 }
 const EditPen = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-pen"
+    className={`${styles.Pen} fas fa-pen`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -23,11 +23,16 @@ const EditPen = React.forwardRef(({ onClick }, ref) => (
 }
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown className="ml-auto" drop="right">
+    <Dropdown className="mr-auto" drop="right">
       <Dropdown.Toggle as={EditPen} />
 
-      <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
-        <Dropdown.Item onClick={handleEdit}>Edit</Dropdown.Item>
+      <Dropdown.Menu
+        className={styles.Menu}
+        popperConfig={{ strategy: "fixed" }}
+      >
+        <Dropdown.Item className={styles.DropdownItem} onClick={handleEdit}>
+          Edit
+        </Dropdown.Item>
         <DeleteConfirmation handleDelete={handleDelete} />
       </Dropdown.Menu>
     </Dropdown>
@@ -42,20 +47,23 @@ export const ProfileEditDropdown = ({ id }) => {
   return (
     <Dropdown className={`mr-auto px-3 ${styles.Absolute}`} drop="right">
       <Dropdown.Toggle as={EditPen} />
-      <Dropdown.Menu>
+      <Dropdown.Menu className={styles.Menu}>
         <Dropdown.Item
+          className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
           Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
+          className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
           Change Username
         </Dropdown.Item>
         <Dropdown.Item
+          className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
