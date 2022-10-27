@@ -23,7 +23,11 @@ const PopularObservation = (props) => {
       overlay={renderTooltip}
     >
       <Link to={`/observations/${id}`}>
-        <Image className={styles.Thumbnail} src={image} thumbnail />
+        {mobile ? (
+          <Image className={styles.ThumbnailMobile} src={image} thumbnail />
+        ) : (
+          <Image className={styles.Thumbnail} src={image} thumbnail />
+        )}
       </Link>
     </OverlayTrigger>
   );
