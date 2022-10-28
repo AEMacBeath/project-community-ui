@@ -7,7 +7,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function CommentCreateForm(props) {
-  const { observation, setObservation, setComments, profileImage, profile_id } =
+  const { observation, setObservation, setComments } =
     props;
   const [content, setContent] = useState("");
   const currentUser = useCurrentUser();

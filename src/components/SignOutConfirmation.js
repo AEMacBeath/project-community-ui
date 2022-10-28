@@ -6,12 +6,8 @@ import btnStyles from "../styles/Button.module.css";
 import navStyles from "../styles/NavBar.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
-{
-  /*
-SignOutConfirmation is a Bootstrap modal for the 
-user to confirm they want to sign out.
-*/
-}
+// SignOutConfirmation is a Bootstrap modal for the 
+// user to confirm they want to sign out.
 const SignOutConfirmation = ({ handleSignOut }) => {
   const [show, setShow] = useState(false);
 

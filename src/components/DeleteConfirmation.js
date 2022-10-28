@@ -5,12 +5,8 @@ import btnStyles from "../styles/Button.module.css";
 import menuStyles from "../styles/MoreDropdown.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
-{
-  /*
-Delete confirmation is a Bootstrap modal for the 
-user to confirm deletion of a comment or observations.
-*/
-}
+// Delete confirmation is a Bootstrap modal for the 
+// user to confirm deletion of a comment or observations.
 const DeleteConfirmation = ({ handleDelete }) => {
   const [show, setShow] = useState(false);
 

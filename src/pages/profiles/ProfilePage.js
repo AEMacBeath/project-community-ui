@@ -9,7 +9,6 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularObservations from "../observations/PopularObservations";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -30,7 +29,6 @@ function ProfilePage() {
     results: [],
   });
 
-  const currentUser = useCurrentUser();
   const { id } = useParams();
 
   const setProfileData = useSetProfileData();

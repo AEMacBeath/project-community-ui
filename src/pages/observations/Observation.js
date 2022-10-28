@@ -24,7 +24,6 @@ const Observation = (props) => {
     content,
     image,
     updated_at,
-    observationPage,
     setObservations,
   } = props;
 

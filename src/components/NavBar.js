@@ -13,9 +13,7 @@ import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
 import SignOutConfirmation from "./SignOutConfirmation";
 
-{
-  /* NavBar contians a Logo and varying NavLinks, depending on users logged in status. */
-}
+// NavBar contians a Logo and varying NavLinks, depending on users logged in status.
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -30,9 +28,8 @@ const NavBar = () => {
       console.log(err);
     }
   };
-  {
-    /* NavLinks to be displayed when a user is logged in. */
-  }
+
+  // NavLinks to be displayed when a user is logged in.
   const loggedInNav = (
     <>
       <NavLink
@@ -62,9 +59,8 @@ const NavBar = () => {
       <SignOutConfirmation handleSignOut={handleSignOut} />
     </>
   );
-  {
-    /* NavLinks to be displayed when a user is not logged in. */
-  }
+
+  // NavLinks to be displayed when a user is not logged in.
   const loggedOutNav = (
     <>
       <NavLink
