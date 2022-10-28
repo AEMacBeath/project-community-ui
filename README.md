@@ -49,7 +49,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 | Likes          | View popular observations - As a user I can view a list of the most liked observations so that I can see what is popular.                           | Create PopularObservations to display observations with the most likes |
 
 ## Page and Compenend Breakdown
-<!--Example: https://camo.githubusercontent.com/1d53f17b964eeea7bcd3b49b4e3ba4ee1d62f61092777819361b1813e1bff462/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f64676a72727664626c2f696d6167652f75706c6f61642f76313634393135353030302f6d6f6d656e74732d636f6d706f6e656e742d6d61705f7266746836712e706e67-->
+![page_component_breakdown](/docs/images/page_component_breakdown.png)
 
 ## Deployment
 1.  In Heroku click on the “new” button and follow the steps to create an app.
@@ -66,6 +66,8 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.
     Fix:    [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
 
+3.  Bug:    Refresh required to see updated content.
+    Fix:    
 
 
 ## Technologies Used
