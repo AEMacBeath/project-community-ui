@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
+// Allows users profile data to be used throughout 
+// the app without repeating code.
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 

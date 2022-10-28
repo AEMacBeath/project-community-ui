@@ -6,16 +6,19 @@ import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// To create Observation comments.
 function CommentCreateForm(props) {
   const { observation, setObservation, setComments } =
     props;
   const [content, setContent] = useState("");
   const currentUser = useCurrentUser();
 
+  // Makes input fields editable
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  // Submits the form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -45,6 +48,7 @@ function CommentCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+          {/* Content input */}
           <Form.Control
             className={styles.Form}
             placeholder={`${currentUser?.username}, enter your comment here`}
@@ -54,6 +58,7 @@ function CommentCreateForm(props) {
             rows={2}
           />
         </InputGroup>
+        {/* Submit button */}
         <button
           className={btnStyles.Btn}
           disabled={!content.trim()}

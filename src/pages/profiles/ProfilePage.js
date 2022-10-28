@@ -23,6 +23,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+// ProfileDetail view
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileObservations, setProfileObservations] = useState({
@@ -36,6 +37,7 @@ function ProfilePage() {
 
   const [profile] = pageProfile.results;
 
+  // Gets profile data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,6 +59,7 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
+  // Page heading
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
@@ -80,6 +83,7 @@ function ProfilePage() {
     </>
   );
 
+  // User's observations with infinite scroll
   const mainProfileObservations = (
     <>
       <hr />

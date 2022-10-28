@@ -17,6 +17,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// To update username
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -24,9 +25,11 @@ const UsernameForm = () => {
   const history = useHistory();
   const { id } = useParams();
 
+  // Gets current user and checks if they are the owner
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Gets current username
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
@@ -35,6 +38,7 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Submits form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,6 +63,7 @@ const UsernameForm = () => {
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
               <Form.Label>Enter new username</Form.Label>
+              {/* Username input */}
               <Form.Control
                 className={appStyles.Control}
                 placeholder="username"
@@ -72,12 +77,14 @@ const UsernameForm = () => {
                 {message}
               </Alert>
             ))}
+            {/* Cancel button */}
             <Button
               className={btnStyles.BtnCancel}
               onClick={() => history.goBack()}
             >
               Cancel
             </Button>
+            {/* Submit button */}
             <Button className={btnStyles.Btn} type="submit">
               Save
             </Button>

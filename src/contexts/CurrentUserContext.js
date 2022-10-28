@@ -4,6 +4,8 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
+// Allows the logged in user's data to be used 
+// throughout the app without repeating code.
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 

@@ -15,20 +15,25 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+// To edit observation
 function ObservationEditForm() {
   const [errors, setErrors] = useState({});
 
+  // Defines observation data
   const [observationData, setObservationData] = useState({
     title: "",
     content: "",
     image: "",
   });
   const { title, content, image } = observationData;
-
   const imageInput = useRef(null);
+
+  // To direct users to the required page when action is complete.
   const history = useHistory();
+
   const { id } = useParams();
 
+  // Gets observation data
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -46,6 +51,7 @@ function ObservationEditForm() {
     handleMount();
   }, [history, id]);
 
+  // Makes inputs editable
   const handleChange = (event) => {
     setObservationData({
       ...observationData,
@@ -62,7 +68,7 @@ function ObservationEditForm() {
       });
     }
   };
-
+  // Submits the form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -87,6 +93,7 @@ function ObservationEditForm() {
 
   const textFields = (
     <div>
+      {/* Title input */}
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -102,7 +109,7 @@ function ObservationEditForm() {
           {message}
         </Alert>
       ))}
-
+      {/* Content input */}
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
@@ -119,10 +126,11 @@ function ObservationEditForm() {
           {message}
         </Alert>
       ))}
-
+      {/* Cancel button */}
       <Button className={btnStyles.BtnCancel} onClick={() => history.goBack()}>
         Cancel
       </Button>
+      {/* Submit button */}
       <Button className={btnStyles.Btn} type="submit">
         Save
       </Button>
@@ -132,6 +140,7 @@ function ObservationEditForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
+        {/* Displays content field */}
         <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
@@ -139,6 +148,7 @@ function ObservationEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
+            {/* Image input */}
             <Form.Group className="text-center">
               <div>
                 <Form.Label htmlFor="image-upload">

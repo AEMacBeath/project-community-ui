@@ -14,19 +14,23 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// To update password
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
 
+  // Defines user data
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
   const { new_password1, new_password2 } = userData;
 
+  // Error handling
   const [errors, setErrors] = useState({});
 
+  // Makes inputs editable
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -41,6 +45,7 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Sumbits form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,6 +64,7 @@ const UserPasswordForm = () => {
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
+              {/* New password input */}
               <Form.Control
                 className={appStyles.Control}
                 type="password"
@@ -72,6 +78,7 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
+            {/* New password confirmation */}
             <Form.Group>
               <Form.Label>Confirm new password</Form.Label>
               <Form.Control
@@ -87,12 +94,14 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
+             {/* Cancel button */}
             <Button
               className={btnStyles.BtnCancel}
               onClick={() => history.goBack()}
             >
               Cancel
             </Button>
+            {/* Submit button */}
             <Button type="submit" className={btnStyles.Btn}>
               Save
             </Button>

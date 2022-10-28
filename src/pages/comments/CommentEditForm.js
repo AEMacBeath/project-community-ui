@@ -6,15 +6,18 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+// To udpated comments
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
 
+  // Makes input fields editable
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  // Submits the form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -33,6 +36,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      // Hides the edit form
       setShowEditForm(false);
     } catch (err) {
       console.log(err);
@@ -42,6 +46,7 @@ function CommentEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
+        {/* Content input */}
         <Form.Control
           className={styles.Form}
           as="textarea"
@@ -51,6 +56,7 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
+        {/* Cancel button */}
         <button
           className={btnStyles.BtnCancel}
           onClick={() => setShowEditForm(false)}
@@ -58,6 +64,7 @@ function CommentEditForm(props) {
         >
           Cancel
         </button>
+        {/* Submit button */}
         <button
           className={btnStyles.Btn}
           disabled={!content.trim()}

@@ -7,6 +7,7 @@ const PopularObservation = (props) => {
   const { observation, mobile } = props;
   const { id, image, title } = observation;
 
+  // Displays Observation Title when tumbnail is hovered over
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       {title}

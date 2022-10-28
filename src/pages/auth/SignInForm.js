@@ -15,10 +15,12 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
-const SignUpForm = () => {
+// To sign into a registered account.
+const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
 
+  // Defines sign up data
   const [signUpData, setSignUpData] = useState({
     username: "",
     password: "",
@@ -26,10 +28,13 @@ const SignUpForm = () => {
 
   const { username, password } = signUpData;
 
+  // Error handling
   const [errors, setErrors] = useState({});
 
+  // To direct users to the required page when action is complete.
   const history = useHistory();
 
+  // Makes input fields editable
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -37,6 +42,7 @@ const SignUpForm = () => {
     });
   };
 
+  // Submits the form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -56,6 +62,7 @@ const SignUpForm = () => {
           <h2>Sign in form</h2>
           <p>Please enter your detials to sign in</p>
           <Form className={styles.Form} onSubmit={handleSubmit}>
+            {/* Username input */}
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
@@ -73,6 +80,7 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
+            {/* Password input */}
             <Form.Group controlId="password">
               <Form.Label className="d-none">password</Form.Label>
               <Form.Control
@@ -90,6 +98,7 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
+            {/* Submit button */}
             <Button className={btnStyles.Btn} type="submit">
               Sign in
             </Button>
@@ -99,6 +108,8 @@ const SignUpForm = () => {
               </Alert>
             ))}
           </Form>
+          
+          {/* Link to SignUpForm for un-registered users. */}
           <Link className={styles.Link} to="/signup">
             Not got an account? Sign up here
           </Link>
@@ -108,4 +119,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

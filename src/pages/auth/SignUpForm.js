@@ -13,8 +13,11 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 
+// To create an account and profile.
 const SignUpForm = () => {
   useRedirect("loggedIn");
+
+  // Defines sign in data
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -23,10 +26,13 @@ const SignUpForm = () => {
 
   const { username, password1, password2 } = signUpData;
 
+  // Error handling
   const [errors, setErrors] = useState({});
 
+  // To direct users to the required page when action is complete.
   const history = useHistory();
 
+  // Makes input fields editable
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -34,6 +40,7 @@ const SignUpForm = () => {
     });
   };
 
+  // Submits the form input to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -51,6 +58,7 @@ const SignUpForm = () => {
           <h2>Sign up form</h2>
           <p>Please complete the below form to create an account</p>
           <Form className={styles.Form} onSubmit={handleSubmit}>
+            {/* Username input */}
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
@@ -67,7 +75,7 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
+            {/* Password1 input */}
             <Form.Group controlId="password1">
               <Form.Label className="d-none">Password1</Form.Label>
               <Form.Control
@@ -84,7 +92,7 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
+            {/* Password2 input */}
             <Form.Group controlId="password2">
               <Form.Label className="d-none">Re-enter Password</Form.Label>
               <Form.Control
@@ -101,7 +109,7 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
+            {/* Submit button */}
             <Button className={btnStyles.Btn} type="submit">
               Sign up
             </Button>
@@ -111,6 +119,8 @@ const SignUpForm = () => {
               </Alert>
             ))}
           </Form>
+
+          {/* Link to SignInForm for registered users. */}
           <Link className={styles.Link} to="/signin">
             Already a user? Sign in here.
           </Link>

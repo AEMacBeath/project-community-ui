@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+// Redirects users away from content their 
+// logged in / out status can't view.
 export const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 

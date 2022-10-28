@@ -13,7 +13,7 @@ import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
 import SignOutConfirmation from "./SignOutConfirmation";
 
-// NavBar contians a Logo and varying NavLinks, depending on users logged in status.
+// Contians a Logo and varying NavLinks, depending on users logged in status.
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -29,7 +29,7 @@ const NavBar = () => {
     }
   };
 
-  // NavLinks to be displayed when a user is logged in.
+  // Nav items displayed when a user is logged in.
   const loggedInNav = (
     <>
       <NavLink
@@ -60,7 +60,7 @@ const NavBar = () => {
     </>
   );
 
-  // NavLinks to be displayed when a user is not logged in.
+  // Nav items displayed when a user is not logged in.
   const loggedOutNav = (
     <>
       <NavLink

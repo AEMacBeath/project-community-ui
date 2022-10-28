@@ -18,7 +18,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularObservations from "./PopularObservations";
 
-
+// Displays a single observation and it's comments
 function ObservationPage() {
   const { id } = useParams();
   const [observation, setObservation] = useState({ results: [] });
@@ -27,6 +27,7 @@ function ObservationPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
 
+  // Gets observation from API
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -48,11 +49,13 @@ function ObservationPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularObservations mobile />
+        {/* Displays oberservation detail */}
         <Observation
           {...observation.results[0]}
           setObservation={setObservation}
           observationPage
         />
+        {/* Shows the CommentCreateForm if user is logged in */}
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
@@ -65,6 +68,7 @@ function ObservationPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+          {/* Displays comments */}
           {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (

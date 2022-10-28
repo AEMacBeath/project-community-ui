@@ -19,6 +19,7 @@ import styles from "../../styles/ObservationCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// To edit user's profile
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -26,6 +27,7 @@ const ProfileEditForm = () => {
   const history = useHistory();
   const imageFile = useRef();
 
+  // Defines profile data
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
@@ -33,8 +35,10 @@ const ProfileEditForm = () => {
   });
   const { name, content, image } = profileData;
 
+  // Error handling
   const [errors, setErrors] = useState({});
 
+  // Gets profile information
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -54,6 +58,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  // Makes inputs editable
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -61,6 +66,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  // Subits form inputs to the API
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -88,6 +94,7 @@ const ProfileEditForm = () => {
     <>
       <Form.Group>
         <Form.Label>Bio</Form.Label>
+        {/* Content field */}
         <Form.Control
           className={appStyles.Control}
           as="textarea"
@@ -103,9 +110,11 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
+      {/* Cancel button */}
       <Button className={btnStyles.Btn} onClick={() => history.goBack()}>
         Cancel
       </Button>
+      {/* Save button */}
       <Button className={btnStyles.Btn} type="submit">
         Save
       </Button>
@@ -122,6 +131,7 @@ const ProfileEditForm = () => {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
+            {/* Image input */}
             <Form.Group className="text-center">
               {image && (
                 <div>

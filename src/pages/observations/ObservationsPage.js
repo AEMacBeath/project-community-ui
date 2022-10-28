@@ -19,15 +19,15 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularObservations from "./PopularObservations";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// Displays all Ovservations sorted by date, newest first.
 function ObservationsPage({ message, filter = "" }) {
   const [observations, setObservations] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
   const [query, setQuery] = useState("");
-
   const currentUser = useCurrentUser();
 
+  // Gets observations
   useEffect(() => {
     const fetchObservations = async () => {
       try {
@@ -55,6 +55,7 @@ function ObservationsPage({ message, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularObservations mobile />
+        {/* Search bar */}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -68,7 +69,7 @@ function ObservationsPage({ message, filter = "" }) {
             placeholder="Search observations"
           />
         </Form>
-
+        { /* ObservationsList with InfiniteScroll */}
         {hasLoaded ? (
           <>
             {observations.results.length ? (
@@ -92,6 +93,7 @@ function ObservationsPage({ message, filter = "" }) {
             )}
           </>
         ) : (
+          // Diaplayes spinner while Observations load
           <Container className={appStyles.Content}>
             <Asset spinner />
           </Container>

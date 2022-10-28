@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
+// Allows the observation data to be used throughout 
+// the app without repeating code.
 const ObservationDataContext = createContext();
 const SetObservationDataContext = createContext();
 

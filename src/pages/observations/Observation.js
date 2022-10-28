@@ -11,6 +11,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { Col, Row } from "react-bootstrap";
 
+// To create, updated and delete observations
 const Observation = (props) => {
   const {
     id,
@@ -27,14 +28,19 @@ const Observation = (props) => {
     setObservations,
   } = props;
 
+  // Gets current user and checks if they are the observation owner
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  // To direct users to the required page when action is complete.
   const history = useHistory();
 
+  // Directs user to ObservationEditForm.
   const handleEdit = () => {
     history.push(`/observations/${id}/edit`);
   };
 
+  // Deletes the Observation
   const handleDelete = async (handleClose) => {
     try {
       await axiosRes.delete(`/observations/${id}/`);
@@ -45,6 +51,7 @@ const Observation = (props) => {
     }
   };
 
+  // Increases Observation's like_count.
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { observation: id });
@@ -63,6 +70,7 @@ const Observation = (props) => {
     } catch (err) {}
   };
 
+  // Decreases Observation's like_count.
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -85,6 +93,7 @@ const Observation = (props) => {
     <Card className={styles.Observation}>
       <Card.Body>
         <Row>
+          {/* Displays observation title, content and image */}
           <Col md={10}>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{content}</Card.Text>
@@ -94,8 +103,10 @@ const Observation = (props) => {
           </Col>
           <Col md={2}>
             <Media>
+              {/* Link to owner's profile */}
               <Link className={styles.UserName} to={`/profiles/${profile_id}`}>
                 <div>
+                  {/* Displays MoreDropDown menu icon if curernt user is the owner */}
                   {is_owner && (
                     <MoreDropdown
                       handleEdit={handleEdit}
@@ -103,9 +114,11 @@ const Observation = (props) => {
                     />
                   )}
                 </div>
+                {/* Displays the owners profile image */}
                 <div>
                   <Avatar src={profile_image} height={55} />
                 </div>
+                {/* Displays owner's username */}
                 <div>{owner}</div>
               </Link>
             </Media>
@@ -115,7 +128,10 @@ const Observation = (props) => {
       <Card.Footer className={styles.Footer}>
         <Row>
           <Col>
+            {/* Displays number of likes */}
             {likes_count} {likes_count === 1 ? "Like" : "Likes"}
+            {/* If not already like by user increases likes_count else decreses likes_count. 
+            Displayes messages if not logged in or user is owner */}
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
@@ -143,6 +159,7 @@ const Observation = (props) => {
             )}
           </Col>
           <Col>
+              {/* Link to ObservationPage to view comments displayed comments_count */}
             <Link to={`/observations/${id}`}>
               {comments_count} {comments_count === 1 ? "Comment" : "Comments"}
               <i className="far fa-comment" />

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState }  from "react";
 
+// Closes the burger menu when a user clicks anywhere, 
+// not just on the burger icons.
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);

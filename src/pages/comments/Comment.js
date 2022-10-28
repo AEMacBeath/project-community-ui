@@ -8,7 +8,7 @@ import styles from "../../styles/Comment.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-
+// To create, update and delete comments.
 const Comment = (props) => {
   const {
     profile_id,
@@ -21,10 +21,14 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  // Shows edit form
   const [showEditForm, setShowEditForm] = useState(false);
+
+  // Checks if current user is the owner
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  // Deletes user's comment
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -48,12 +52,15 @@ const Comment = (props) => {
     <>
       <hr />
       <Media>
+        {/* Link to owners profile displated as profile image */}
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
+        {/* Displays owner's name and Observation updated date */}
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
+          {/* Shows edit form when Edit is select from MoreDropDown */}
           {showEditForm ? (
             <CommentEditForm
               id={id}
@@ -67,6 +74,7 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
         </Media.Body>
+        {/* Shows edit dropdown menu */}
         {is_owner && !showEditForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}

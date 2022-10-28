@@ -4,6 +4,8 @@ import appStyles from "../../App.module.css";
 import PopularObservation from "./PopularObservation";
 import Asset from "../../components/Asset";
 
+// Shows the observations with the most likes
+// 4 on desktop, 2 on tablet / mobile
 const PopularObservations = ({ mobile }) => {
   const { popularObservations } = useObservationData();
 
