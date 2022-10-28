@@ -40,7 +40,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
 };
 
 {
-  /* ProfileEditDropdown is the dropdown menu used on ProfilePage */
+  /* ProfileEditDropdown is the dropdown menu used on the ProfilePage */
 }
 export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();

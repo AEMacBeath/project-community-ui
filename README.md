@@ -14,7 +14,7 @@ Heroku App - [project-community-ci](https://project-community-ci.herokuapp.com)
 ## Responsive Screenshot
 
 ## User Stories
-The user stories for this API where written in conjuncion with the React application using [@AEMacBeath's Project Community](https://github.com/users/AEMacBeath/projects/11/views/1) GitHub Project.
+The user stories for this API where written in conjuncion with the Django API using [@AEMacBeath's Project Community](https://github.com/users/AEMacBeath/projects/11/views/1) GitHub Project.
 
 The GitHub project is grouped by Milestones broken down into User Stories and Tasks. 
 
@@ -66,10 +66,6 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.
     Fix:    [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
 
-3.  Bug:    Refresh required to see updated content.
-    Fix:    
-
-
 ## Technologies Used
 -   HTML
 -   CSS
@@ -83,43 +79,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 ## Testing
 ### Automated
 ### Manual
-The below functionality had been tested on the deployed [Project Communeity](https://project-community-ci.herokuapp.com/) app
-
-### General functionality
-1.  View observations on the homepage
-1.  View popular observations component
-1.  View observation Like & Comment count
-1.  Search observations by
-        -   owner
-        -   title
-        -   content = no
-1.  View a single Observation by clicking on it
-1.  View comments for selected observation
-1.  View a uses profile
-
-### Logged out specific functionality
-1.  See logged out navigation links
-    -   Home
-    -   Sign up
-    -   Sign in
-1.  Create account using the sign up form
-
-### Logged in specific functionality
-1.  See logged in navigation links
-    -   Home
-    -   Add Observation
-    -   Username Profile
-    -   Liked Observations
-    -   Sign out
-1.  Create and Observation with an image
-1.  Like / Unlike an Observation (if i am not the owner)
-1.  Add, updated and delete a comment
-1.  Update my profile
-    -   Add / change bio (not visible anywhere)
-    -   Updae username
-    -   Change password
-1.  View Liked observations
-1.  Sign out
+The steps outlined in [maunal-testing.md] have been complete on the deployed [Project Community](https://project-community-ci.herokuapp.com/) app.
 
 ### Validator
 

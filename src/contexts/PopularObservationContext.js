@@ -11,7 +11,6 @@ export const useSetObservationData = () =>
 
 export const ObservationDataProvider = ({ children }) => {
   const [observationData, setObservationData] = useState({
-    // pageObservation for later
     pageObservation: { results: [] },
     popularObservations: { results: [] },
   });

@@ -3,7 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Asset.module.css";
 
 {
-  /* Asset is a spinner to display while components are loading. */
+  /* Asset is a spinner to display while content is loading. */
 }
 const Asset = ({ spinner, src, message }) => {
   return (

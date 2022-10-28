@@ -14,7 +14,7 @@ import styles from "../styles/NavBar.module.css";
 import SignOutConfirmation from "./SignOutConfirmation";
 
 {
-  /* NavBar contians a Logo and varying NavLink, depending on users logged in status. */
+  /* NavBar contians a Logo and varying NavLinks, depending on users logged in status. */
 }
 const NavBar = () => {
   const currentUser = useCurrentUser();
