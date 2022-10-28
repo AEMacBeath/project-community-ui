@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/SignInUpForm.module.css";
+import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
@@ -53,6 +54,7 @@ const SignUpForm = () => {
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -69,6 +71,7 @@ const SignUpForm = () => {
             <Form.Group controlId="password1">
               <Form.Label className="d-none">Password1</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 type="password"
                 placeholder="Password"
                 name="password1"
@@ -85,6 +88,7 @@ const SignUpForm = () => {
             <Form.Group controlId="password2">
               <Form.Label className="d-none">Re-enter Password</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 type="password"
                 placeholder="Re-enter Password"
                 name="password2"

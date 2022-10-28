@@ -6,7 +6,6 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
@@ -52,7 +51,11 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
-        <button onClick={() => setShowEditForm(false)} type="button">
+        <button
+          className={btnStyles.BtnCancel}
+          onClick={() => setShowEditForm(false)}
+          type="button"
+        >
           Cancel
         </button>
         <button

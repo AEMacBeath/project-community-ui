@@ -60,6 +60,7 @@ const UserPasswordForm = () => {
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 type="password"
                 value={new_password1}
                 onChange={handleChange}
@@ -74,6 +75,7 @@ const UserPasswordForm = () => {
             <Form.Group>
               <Form.Label>Confirm new password</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 type="password"
                 value={new_password2}
                 onChange={handleChange}
@@ -91,10 +93,7 @@ const UserPasswordForm = () => {
             >
               Cancel
             </Button>
-            <Button
-              type="submit"
-              className={btnStyles.Btn}
-            >
+            <Button type="submit" className={btnStyles.Btn}>
               Save
             </Button>
           </Form>

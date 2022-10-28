@@ -90,6 +90,7 @@ function ObservationEditForm() {
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
+          className={appStyles.Control}
           type="text"
           name="title"
           value={title}
@@ -105,6 +106,7 @@ function ObservationEditForm() {
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
+          className={appStyles.Control}
           as="textarea"
           rows={6}
           name="content"

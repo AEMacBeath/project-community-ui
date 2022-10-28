@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import styles from "../styles/Modal.module.css";
 import btnStyles from "../styles/Button.module.css";
+import menuStyles from "../styles/MoreDropdown.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 {
@@ -21,7 +22,7 @@ const DeleteConfirmation = ({ handleDelete }) => {
   return (
     <>
       {/* Reveals the modal when clicked. */}
-      <Dropdown.Item onClick={handleShow}>Delete</Dropdown.Item>
+      <Dropdown.Item className={menuStyles.DropdownItem} onClick={handleShow}>Delete</Dropdown.Item>
 
       <Modal show={show} onHide={handleClose} className={styles.Modal}>
         <Modal.Header>

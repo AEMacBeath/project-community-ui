@@ -60,6 +60,7 @@ const UsernameForm = () => {
             <Form.Group>
               <Form.Label>Enter new username</Form.Label>
               <Form.Control
+                className={appStyles.Control}
                 placeholder="username"
                 type="text"
                 value={username}
@@ -77,10 +78,7 @@ const UsernameForm = () => {
             >
               Cancel
             </Button>
-            <Button
-              className={btnStyles.Btn}
-              type="submit"
-            >
+            <Button className={btnStyles.Btn} type="submit">
               Save
             </Button>
           </Form>

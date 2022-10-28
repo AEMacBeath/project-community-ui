@@ -1,6 +1,7 @@
-.Form {
-  background-color: #343a40;
-  border: 2px #ffc400 solid;
+.Form, .Form:focus {
+  background-color: #343a40 !important;
+  border: 2px #ffc400 solid !important;
   color: whitesmoke;
+  box-shadow: none !important;
 }
 
