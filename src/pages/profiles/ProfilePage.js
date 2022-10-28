@@ -73,9 +73,8 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
-              <div>{profile?.observations_count}</div>
-              <div>observations</div>
+            <Col xs={4} className="my-2">
+              <div>{profile?.observations_count} { profile?.observations_count === 1 ? 'observation' : 'observations'}</div>
             </Col>
           </Row>
         </Col>
