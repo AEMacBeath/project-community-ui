@@ -81,9 +81,9 @@ function ObservationPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
+            <span>No comments, be the first to comment!</span>
           ) : (
-            <span>No comments... yet</span>
+            <span>No comments</span>
           )}
         </Container>
       </Col>
