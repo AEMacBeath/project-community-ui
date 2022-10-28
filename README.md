@@ -12,6 +12,10 @@ GitHub Repository - [project-community-ui](https://github.com/AEMacBeath/project
 Heroku App - [project-community-ci](https://project-community-ci.herokuapp.com)
 
 ## Responsive Screenshot
+![am-i-responsive](/docs/images/am-i-responsive.png)
+
+## Project Design
+The wireframes fro this project can be viewed [here](/docs/wireframes.md).
 
 ## User Stories
 The user stories for this API where written in conjuncion with the Django API using [@AEMacBeath's Project Community](https://github.com/users/AEMacBeath/projects/11/views/1) GitHub Project.
@@ -63,7 +67,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 1.  Bug:    opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
     Fix:    [Link to Solution by trashcoder](https://github.com/facebook/create-react-app/issues/11562#issuecomment-949320790)
 
-2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.
+2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.<br>
     Fix:    [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
 
 ## Technologies Used
@@ -79,7 +83,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 ## Testing
 ### Automated
 ### Manual
-The steps outlined in [maunal-testing.md] have been complete on the deployed [Project Community](https://project-community-ci.herokuapp.com/) app.
+The steps outlined in [maunal-testing.md](/docs/manual-testing.md) have been complete on the deployed [Project Community](https://project-community-ci.herokuapp.com/) app.
 
 ### Validator
 
@@ -97,7 +101,7 @@ The steps outlined in [maunal-testing.md] have been complete on the deployed [Pr
 -   useRedirect enables redirect for users who are either logged in or logged out.
 
 ## Credits
-<!-- https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/ -->
-<!--Credits - https://safetyrisk.net/safety-photos-funny-fails/-->
-<!--https://icons8.com/-->
+-   Converted User Story tables from Excel using [thisdavej](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
+-   Images for posts are from [Pexels](https://www.pexels.com/)
+-   Icons (upload.png & no-results.png) are from [icons8](https://icons8.com/)
 
