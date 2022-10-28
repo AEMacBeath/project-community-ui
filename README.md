@@ -81,11 +81,12 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 -   Cloudinary
 
 ## Testing
-### Automated
 ### Manual
 The steps outlined in [maunal-testing.md](/docs/manual-testing.md) have been complete on the deployed [Project Community](https://project-community-ci.herokuapp.com/) app.
 
 ### Validator
+-   HTML [w3](https://validator.w3.org/nu/?doc=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F)
+-   CSS [Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ## Libraries
 -   react-inifinite-scroll-component
