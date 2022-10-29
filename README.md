@@ -1,30 +1,37 @@
 # Project Community - React App
 
 ## Project Description
+
 Project Community is a social media platform designed for users to share safety observation reports. The application is made up of a Django API and a React app.
 
 ### API
+
 GitHub Repository - [project-community-api](https://github.com/AEMacBeath/project-community-api)<br>
 Heroku App - [project-community-api](https://project-community-api.herokuapp.com/)
 
 ### React App
+
 GitHub Repository - [project-community-ui](https://github.com/AEMacBeath/project-community-ui)<br>
 Heroku App - [project-community-ci](https://project-community-ci.herokuapp.com)
 
 ## Responsive Screenshot
+
 ![am-i-responsive](/docs/images/am-i-responsive.png)
 
 ## Project Design
+
 The wireframes fro this project can be viewed [here](/docs/wireframes.md).
 
 ## User Stories
+
 The user stories for this API where written in conjuncion with the Django API using [@AEMacBeath's Project Community](https://github.com/users/AEMacBeath/projects/11/views/1) GitHub Project.
 
-The GitHub project is grouped by Milestones broken down into User Stories and Tasks. 
+The GitHub project is grouped by Milestones broken down into User Stories and Tasks.
 
 ### React App User Stories
+
 | Milestone      | User Story                                                                                                                                          | Task                                                                   |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Authentication | Sign up - As a user I can create an account so that I can access all the features.                                                                  | Create SignUp form                                                     |
 | Authentication | Sign In - As a user I can sign into my account so that I can access the signed in features.                                                         | Create SignIn form                                                     |
 | Authentication | Remain logged in - As a user I can remain logged in until I choose to log out so that I do not need to repeatedly log in.                           | Install Access Refresh Tokens                                          |
@@ -53,56 +60,65 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 | Likes          | View popular observations - As a user I can view a list of the most liked observations so that I can see what is popular.                           | Create PopularObservations to display observations with the most likes |
 
 ## Page and Compenend Breakdown
+
 ![page_component_breakdown](/docs/images/page_component_breakdown.png)
 
 ## Deployment
+
 1.  In Heroku click on the “new” button and follow the steps to create an app.
 2.  Select Region then click “Create app”.
 3.  Connect App to Github repository.
-    -  From the “Deploy” tab, select “Github” in the “Deployment method” section.
-    -  Enter the name of the repository and then click “Connect”.
-4. Click “deploy branch” which will trigger Heroku to start building the application.
+    - From the “Deploy” tab, select “Github” in the “Deployment method” section.
+    - Enter the name of the repository and then click “Connect”.
+4.  Click “deploy branch” which will trigger Heroku to start building the application.
 
 ## Bugs
-1.  Bug:    opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
-    Fix:    [Link to Solution by trashcoder](https://github.com/facebook/create-react-app/issues/11562#issuecomment-949320790)
 
-2.  Bug:    Buttons and MoreDropDown menu items have a blue background and shadow.<br>
-    Fix:    [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
+1.  Bug: opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]<br>
+    Fix: [Link to Solution by trashcoder](https://github.com/facebook/create-react-app/issues/11562#issuecomment-949320790)
+
+2.  Bug: Buttons and MoreDropDown menu items have a blue background and shadow.<br>
+    Fix: [button:focus {box-shadow:none !important;}](https://stackoverflow.com/questions/63593788/react-button-has-blue-border-around-it-when-clicking)
 
 ## Technologies Used
--   HTML
--   CSS
--   React JS
--   React-Bootstrap
--   GitHub
--   GitPod
--   Heroku
--   Cloudinary
+
+- HTML
+- CSS
+- React JS
+- React-Bootstrap
+- GitHub
+- GitPod
+- Heroku
+- Cloudinary
 
 ## Testing
+
 ### Manual
+
 The steps outlined in [maunal-testing.md](/docs/manual-testing.md) have been complete on the deployed [Project Community](https://project-community-ci.herokuapp.com/) app.
 
 ### Validator
--   HTML [w3](https://validator.w3.org/nu/?doc=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F)
--   CSS [Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+- HTML [w3](https://validator.w3.org/nu/?doc=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F)
+- CSS [Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fproject-community-ci.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ## Libraries
--   react-inifinite-scroll-component
--   react-bootstrap
+
+- react-inifinite-scroll-component
+- react-bootstrap
 
 ## Contexts
--   CurrentUserContext exposes the user state to the entire app. Relevany components can subscribe to its changes.
--   PopularObservationContext exposes the observations state to the entire app. Enables the PopularObservations component to be in sync with the ObservationPage.
-<!-- ProfileDataContext exposes the profile state to the entire app. Am i using this??-->
+
+- CurrentUserContext exposes the user state to the entire app. Relevany components can subscribe to its changes.
+- PopularObservationContext exposes the observations state to the entire app. Enables the PopularObservations component to be in sync with the ObservationPage.
 
 ## Hooks
--   useClickOutsideToggle enables toggle on the burger menu.
--   useRedirect enables redirect for users who are either logged in or logged out.
+
+- useClickOutsideToggle enables toggle on the burger menu.
+- useRedirect enables redirect for users who are either logged in or logged out.
 
 ## Credits
--   Converted User Story tables from Excel using [thisdavej](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
--   Images for posts are from [Pexels](https://www.pexels.com/)
--   Icons (upload.png & no-results.png) are from [icons8](https://icons8.com/)
 
+- Converted User Story tables from Excel using [thisdavej](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
+- Images for posts are from [Pexels](https://www.pexels.com/)
+- Icons (upload.png & no-results.png) are from [icons8](https://icons8.com/)
