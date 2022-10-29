@@ -20,7 +20,7 @@ Heroku App - [project-community-ci](https://project-community-ci.herokuapp.com)
 
 ## Project Design
 
-The wireframes fro this project can be viewed [here](/docs/wireframes.md).
+The wireframes for this project can be viewed [here](/docs/wireframes.md).
 
 ## User Stories
 
@@ -59,7 +59,7 @@ The GitHub project is grouped by Milestones broken down into User Stories and Ta
 | Likes          | View liked observations - As a user I can easily locate observations I have liked so that I can stay up to date with comments / updates.            | Add Liked NavLink to filtered ObservationsPage                         |
 | Likes          | View popular observations - As a user I can view a list of the most liked observations so that I can see what is popular.                           | Create PopularObservations to display observations with the most likes |
 
-## Page and Compenend Breakdown
+## Page and Component Breakdown
 
 ![page_component_breakdown](/docs/images/page_component_breakdown.png)
 
@@ -109,7 +109,7 @@ The steps outlined in [maunal-testing.md](/docs/manual-testing.md) have been com
 
 ## Contexts
 
-- CurrentUserContext exposes the user state to the entire app. Relevany components can subscribe to its changes.
+- CurrentUserContext exposes the user state to the entire app. Related components can subscribe to its changes.
 - PopularObservationContext exposes the observations state to the entire app. Enables the PopularObservations component to be in sync with the ObservationPage.
 
 ## Hooks
